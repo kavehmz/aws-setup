@@ -1,0 +1,17 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Stmt1483900802000",
+            "Effect": "Allow",
+            "Action": [
+                "iam:GetRoles",
+                "iam:GetRolePolicy",
+                "iam:ListRoles"
+            ],
+            "Resource": [
+                "arn:aws:iam::*"
+            ]
+        }
+    ]
+}
