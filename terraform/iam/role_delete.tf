@@ -1,7 +1,6 @@
 resource "aws_iam_role" "delete" {
-  name = "delete"
-
-  assume_role_policy = "${data.aws_iam_policy_document.policy_assume_all.json}"
+  name               = "delete"
+  assume_role_policy = "${data.aws_iam_policy_document.policy_assume_empty.json}"
 }
 
 resource "aws_iam_role_policy_attachment" "delete-ec2-attach" {

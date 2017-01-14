@@ -1,6 +1,5 @@
 resource "aws_iam_role" "super" {
-  name = "super"
-
+  name               = "super"
   assume_role_policy = "${data.aws_iam_policy_document.policy_assume_all.json}"
 }
 
