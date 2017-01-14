@@ -10,7 +10,9 @@ Apply "iam" to init the users and required s3 for remote state.
 
 ```bash
 $ cd iam
-$ terraform apply iam
+$ terraform plan
+# If it looks OK
+$ terraform apply
 ```
 
 Then setup the terraform remote state.

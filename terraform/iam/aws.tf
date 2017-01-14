@@ -15,6 +15,7 @@ data "aws_caller_identity" "current" {}
 resource "aws_s3_bucket" "rmeote_state_bucket" {
   bucket = "${data.aws_caller_identity.current.account_id}_${var.terraform_profile}_state"
   acl    = "private"
+  region = "us-east-1"
 
   versioning {
     enabled = true
