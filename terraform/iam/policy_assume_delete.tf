@@ -1,4 +1,4 @@
-data "aws_iam_policy_document" "policy_assume_empty" {
+data "aws_iam_policy_document" "policy_assume_delete" {
   statement {
     actions = ["sts:AssumeRole"]
 
@@ -9,8 +9,11 @@ data "aws_iam_policy_document" "policy_assume_empty" {
     }
 
     principals {
-      type        = "AWS"
-      identifiers = []
+      type = "AWS"
+
+      identifiers = [
+        "arn:aws:iam::${data.aws_caller_identity.current.account_id}:root",
+      ]
     }
   }
 }
