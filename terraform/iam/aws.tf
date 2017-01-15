@@ -6,24 +6,22 @@ provider "aws" {
   region = "${var.region}"
 }
 
-variable "terraform_profile" {
-  default = "terraform"
+variable "iam_state_bucket_name" {
+  default = "terraform_state_iam"
 }
 
 data "aws_caller_identity" "current" {}
 
-resource "aws_s3_bucket" "rmeote_state_bucket" {
-  bucket = "${data.aws_caller_identity.current.account_id}_${var.terraform_profile}_state"
+resource "aws_s3_bucket" "remote_iam_state_bucket" {
+  bucket = "${var.iam_state_bucket_name}_${data.aws_caller_identity.current.account_id}"
   acl    = "private"
   region = "us-east-1"
 
   versioning {
     enabled = true
   }
-
-  force_destroy = true
 }
 
 output "rmeote_state_bucket" {
-  value = "${aws_s3_bucket.rmeote_state_bucket.bucket}"
+  value = "${aws_s3_bucket.remote_iam_state_bucket.bucket}"
 }

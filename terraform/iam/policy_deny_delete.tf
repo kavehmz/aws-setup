@@ -27,7 +27,8 @@ resource "aws_iam_policy" "deny_delete" {
                 "s3:*"
             ],
             "Resource": [
-                "arn:aws:s3:::eternal*"
+                "arn:aws:s3:::eternal*",
+                "arn:aws:s3:::${var.iam_state_bucket_name}*"
             ]
         },
         {
